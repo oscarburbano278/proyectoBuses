@@ -1,0 +1,34 @@
+{
+  "name": "practicabus",
+  "version": "1.0.0",
+  "description": "gestion de buses",
+  "main": "./dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn -- src/index.ts",
+    "test": "npm run build && jest --coverage --collectCoverageFrom=src/**",
+    "build": "rm -rf dist/* && tsc --sourceMap false",
+    "up:build": "docker-compose up -d --build",
+    "up": "docker-compose up -d",
+    "lint": "tsc --noEmit && eslint \"*/.{js,ts}\" --quiet --fix",
+    "pretty-quick": "pretty-quick",
+    "pretty-check": "pretty-quick --check",
+    "pre-commit": "npm run lint && npm run pretty-quick --staged && npm run test",
+    "start": "node dist/index"
+  },
+  "keywords": [
+    "nodejs",
+    "typescript"
+  ],
+  "author": "Oscar Burbano",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.1.1",
+    "eslint": "^9.1.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5",
+    "pretty-quick": "^4.0.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.5"
+  }
+}
